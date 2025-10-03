@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>infotech wizard</title>
+  <style>
+  
+    /* ===== Root variables (easy theme tuning) ===== */
+    :root{
+      --max-width: 1280px;
+      --gap: 24px;
+      --bg: #ffffff;
+      --muted: #6b7280;
+      --accent: #FA7275;
+      --accent-700: #e05759;
+      --text: #0f172a;
+      --pink-light: #FFC9D9;
+      --pink-bg: #FFD4E0;
+      --radius: 12px;
+      --container-padding: 40px;
+      --header-height: 80px;
+      font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ===== Global ===== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .site{
+      max-width:100%;
+      margin:0;
+      padding:0;
+    }
+    
+    main{
+      padding-top:var(--header-height);
+    }
+
+    /* ===== Header ===== */
+    header{
+      height:var(--header-height);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background:#fff;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      padding:0 var(--container-padding);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand .logo{
+      width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-700));
+      display:inline-grid;place-items:center;color:#fff;font-weight:700;font-size:20px;
+    }
+    .brand .tagline{
+      font-size:12px;color:var(--muted);font-weight:400;
+    }
+    .brand-text .title{
+      font-size:17px;font-weight:700;letter-spacing:-0.3px;margin:0;
+    }
+
+    nav{display:flex;gap:24px;align-items:center;flex:1;justify-content:center}
+    nav a{font-size:15px;color:var(--text);font-weight:500;transition:color 0.2s}
+    .btn{padding:12px 24px;border-radius:50px;font-weight:600;font-size:14px;transition:all 0.3s;border:none;cursor:pointer}
+    .btn-cta{background:#FA1239;color:#fff;box-shadow:0 4px 12px rgba(250,18,57,0.3)}
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:60px;
+      align-items:center;
+      min-height:calc(100vh - var(--header-height));
+      padding:60px 80px;
+      background:linear-gradient(135deg, #FFB6C6 0%, #FFD4E0 50%, #FFF0F3 100%);
+      margin:0;
+      position:relative;
+      overflow:hidden;
+      z-index: 999;
+    }
+
+    
+
+    .hero-left{z-index:100}
+    .hero-left h1{
+      margin:0 0 20px 0;
+      font-size:48px;
+      line-height:58px;
+      letter-spacing:-1px;
+      font-weight:700;
+    }
+    .hero-left h1 .highlight{
+      color:#FA1239;
+      text-decoration:underline;
+      text-decoration-thickness:3px;
+      text-underline-offset:4px;
+    }
+    .hero-left p.lead{
+      margin:0 0 32px 0;
+      color:#4a5568;
+      font-size:16px;
+      line-height:26px;
+      max-width:520px;
+      padding-top: 38px;
+      padding-bottom: 38px;
+    }
+
+    .cta-row{display:flex;gap:16px;align-items:center;margin-bottom:24px}
+    .btn-outline{background:#fff;border:2px solid var(--accent);color:var(--accent);padding:12px 24px;border-radius:50px;font-weight:600}
+    .btn-outline:hover{background:var(--accent);color:#fff}
+
+    /* Right side with image */
+    .hero-right{
+      position:relative;
+      z-index:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .student-image{
+      position:relative;
+      width:100%;
+      max-width:500px;
+      height:auto;
+    }
+    .student-img{
+      width:100%;
+      height:auto;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Rating badge */
+    .rating-badge{
+      position:absolute;
+      left:-110px;
+      top:330px;
+      width:350px;
+      height:117px;
+      z-index:999;
+    }
+    .rating-number{
+      font-size:42px;
+      font-weight:700;
+      color:rgba(225,225,225,0.79);
+      line-height:1;
+    }
+    .stars{
+      color:#FFA500;
+      font-size:18px;
+      letter-spacing:2px;
+    }
+    .rating-text{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    /* Stats badge */
+    .stats-badge{
+      position:absolute;
+      bottom:20px;
+      right:20px;
+      background:#fff;
+      padding:16px 24px;
+      border-radius:16px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.12);
+      display:flex;
+      align-items:center;
+      gap:16px;
+      z-index:3;
+    }
+    .grad-cap{
+      width:48px;
+      height:48px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-700));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+    }
+    .stats-text .number{
+      font-size:24px;
+      font-weight:700;
+      color:var(--text);
+      line-height:1.2;
+    }
+    .stats-text .label{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    /* ===== Section Title ===== */
+    .section-title{
+      text-align:center;
+      margin:60px auto 40px auto;
+      max-width:var(--max-width);
+      padding:0 var(--container-padding);
+      padding-bottom: 50px;
+    }
+    .section-label{
+      display:inline-block;
+      padding:8px 20px;
+     background: rgb(253, 146, 164,0.3);
+      
+      
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:16px;
+    }
+    .section-heading{
+      font-size:32px;
+      font-weight:700;
+      
+      margin:0;
+    }
+
+    /* ===== Features / Services grid ===== */
+    .features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+      margin:40px auto 60px auto;
+      max-width:var(--max-width);
+      padding:0 var(--container-padding);
+    }
+    .feature{
+      background:#fff;
+      border-radius:16px;
+      padding:32px 24px;
+      box-shadow:0 4px 20px rgba(15,23,42,0.06);
+      text-align:center;
+
+    }
+    
+    
+    .feature h3{
+      margin:0 0 12px 0;
+      font-size:18px;
+      font-weight:600;
+    }
+    .feature p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:22px;
+    }
+
+    /* ===== Footer ===== */
+    footer{margin:44px auto 0 auto;padding:25px var(--container-padding);color:var(--muted);font-size:13px;max-width:var(--max-width)}
+
+    
+
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <img src="logo.png" alt="Company Logo" style="width:150px;height:auto;object-fit:contain;">
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+       <a class="btn btn-cta" href="#quote">Get A Quote</a>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Your Resume <h1 class="highlight" style="color:rgb(250,18,57);">Deserves A Yes <span style="color: #0f172a;">Let's</span></h1><h1>Make It Happen</h1> </h1>
+          <p class="lead" >If Your Resume Isn't Getting Responses, It's Time For An Upgrade. Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.</p>
+          <div class="cta-row">
+            <a class="btn btn-outline" href="#packages">RESUME PAKAGES</a>
+            <a class="btn btn-cta" href="#contact">CONTACT US</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="student-image">
+            <!-- Student with backpack illustration/image -->
+            <img src="image.svg" alt="Student" style="width:100%;height:auto;position:relative;z-index:999;">
+            
+            <!-- Rating Badge -->
+            <div class="rating-badge">
+              <img src="rating.svg" alt="4.9 Instructor Rating" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+           
+            
+          </div>
+        </div>
+      </section>
+
+      <div class="section-title">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-heading">You're Not Just Another Applicant And Your Resume Shouldn't Look Like One</h2>
+      </div>
+
+      <section id="services" class="features" aria-label="services">
+        <div class="feature">
+          <img src="img1.svg" alt="Resume ATS Filters" style="width:150px;height:150px;margin:0 auto 20px;object-fit:contain; padding-bottom:18px;">
+          <h3>A Resume That Passes ATS Filters</h3>
+          <p>Get a professionally written, keyword-optimized resume that lands in recruiter inboxes—not rejection piles.</p>
+        </div>
+        <div class="feature">
+          <img src="img2.png" alt="Cover Letter" style="width:150px;height:150px;margin:0 auto 20px;object-fit:contain; padding-bottom:18px;">
+          <h3>A Cover Letter That Gets Read</h3>padding-bottom:18px;
+          <p>Stand out with a cover letter that speaks directly to the role and reflects your strengths.</p>
+        </div>
+        <div class="feature">
+          <img src="img3.png" alt="LinkedIn Profile" style="width:150px;height:150px;margin:0 auto 20px;object-fit:contain; padding-bottom:18px;">
+          <h3>A LinkedIn Profile That Works For You</h3>
+          <p>Attract the right eyes, start conversations, and show up in recruiter searches.</p>
+        </div>
+        <div class="feature">
+          <img src="img4.png" alt="Interview Confidence" style="width:150px;height:150px;margin:0 auto 20px;object-fit:contain; padding-bottom:18px;">
+          <h3>Interview Confidence</h3>
+          <p>Interview preparation with real HR professionals so you speak clearly, confidently, and convincingly.</p>
+        </div>
+      </section>
+
+    </main>
+
+   <footer></footer>
+  </div>
+</body>
+</html>
